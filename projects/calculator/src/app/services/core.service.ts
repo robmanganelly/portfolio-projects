@@ -7,7 +7,7 @@ import { Labels, Nums, Operators } from '../ui/buttons/button';
   providedIn: 'root',
 })
 export class CoreService {
-  private _operationState = '';
+  private _operationState = '0';
   operations = new BehaviorSubject<string>(this._operationState);
   result = new BehaviorSubject<string>('0');
 
@@ -48,7 +48,10 @@ export class CoreService {
     this.operations
       .asObservable()
       .pipe(map((operation) => this.calculate(operation)))
-      .subscribe((result) => this.result.next(result));
+      .subscribe((result) => {
+        console.log('must emit result', result);
+        this.result.next(result)
+      });
   }
 
   compose(item: Labels) {
@@ -69,7 +72,7 @@ export class CoreService {
     return `${this._operationState}`;
   }
 
-  private _formatOperation(operation: string): string {
+  formatOperations(operation: string): string {
     return operation
     .replace('+',' + ')
     .replace('-',' - ')
@@ -79,7 +82,22 @@ export class CoreService {
   }
 
   private calculate(operation: string): string {
-    return `${evaluate(operation)}`;
+    try{
+      return `${evaluate(operation)}`;
+    }catch(e){
+      switch(operation.charAt(operation.length-1)){
+        case '+':
+          return `${evaluate(operation +'1-1')}`;
+        case '-':
+            return `${evaluate(operation +'1+1')}`;
+        case '*':
+            return `${evaluate(operation +'1')}`;
+        case '/':
+            return `${evaluate(operation +'1*1')}`;
+        default:
+          return '';
+      }
+    }
   }
 
 }
