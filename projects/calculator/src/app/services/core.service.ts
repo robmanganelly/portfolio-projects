@@ -7,9 +7,9 @@ import { Labels, Nums, Operators } from '../ui/buttons/button';
   providedIn: 'root',
 })
 export class CoreService {
-  private _operationState = '0';
+  private _operationState = '';
   operations = new BehaviorSubject<string>(this._operationState);
-  result = new BehaviorSubject<string>('0');
+  result = new BehaviorSubject<string>('');
 
   private allowed: Labels[] = [
     '0',
@@ -50,7 +50,7 @@ export class CoreService {
       .pipe(map((operation) => this.calculate(operation)))
       .subscribe((result) => {
         console.log('must emit result', result);
-        this.result.next(result)
+        this.result.next(result === 'undefined' ? ' ' : result)
       });
   }
 
@@ -85,6 +85,7 @@ export class CoreService {
     try{
       return `${evaluate(operation)}`;
     }catch(e){
+      console.log(e);
       switch(operation.charAt(operation.length-1)){
         case '+':
           return `${evaluate(operation +'1-1')}`;
