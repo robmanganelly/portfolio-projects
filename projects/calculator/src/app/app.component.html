@@ -1,6 +1,27 @@
 <!-- <app-numbers (trigger)="handleButton($event)" [label]="1"></app-numbers> -->
 <!-- <app-symbols (trigger)="handleButton($event)" label="+" ></app-symbols> -->
-<p-card>
-  <app-numbers (trigger)="handleButton($event)" label="1"></app-numbers>
-  <app-symbols (trigger)="handleButton($event)" label="+"></app-symbols>
-</p-card>
+<div class="calc-container">
+  <p-card>
+    <!-- display -->
+    <app-display></app-display>
+    <!-- button -->
+    <!-- <div class="container">
+
+      <div class="switch-holder">
+          <div class="switch-label">
+              <i class="fa fa-bluetooth-b"></i><span>Bluetooth</span>
+          </div> -->
+          <div class="toggle-wrapper">
+            <div class="switch-toggle">
+              <input type="checkbox" id="bluetooth">
+              <label for="bluetooth"></label>
+            </div>
+          </div>
+      <!-- </div>
+  </div> -->
+    <!-- keys -->
+    <div class="app-keyboard">
+      <app-keyboard></app-keyboard>
+    </div>
+  </p-card>
+</div>

@@ -18,9 +18,9 @@ import { EventEmitter } from '@angular/core';
 // | '.'
 // | '^';
 
-export type Labels = Operators | Nums | Return;
-export type Return = '=';
-export type Operators = '+' | '-' | '*' | '/'| '^';
+export type Labels = Operators | Nums | Actions;
+export type Actions = '=' | 'DEL'| 'C';
+export type Operators = '+' | '-' | '*' | '/'| '^'|'.'|'%';
 export type Nums = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' |'Infinity'| 'NaN';
 
 export interface Button<T> {

@@ -55,7 +55,7 @@ export class CoreService {
     try {
       if (item === '=') throw new Error('"=" is not yet implemented');
       this._operationState = this._sanitizeAndJoin(item);
-      this.operations.next(this._formatOperation(this._operationState));
+      this.operations.next(this._operationState);
     } catch (e) {
       //debug
       console.log('catch inside compose', e);
@@ -70,8 +70,12 @@ export class CoreService {
   }
 
   private _formatOperation(operation: string): string {
-    alert('to be implemented _formatOperation');
-    return operation;
+    return operation
+    .replace('+',' + ')
+    .replace('-',' - ')
+    .replace('*',' x ')
+    .replace('/', ' / ')
+    ;
   }
 
   private calculate(operation: string): string {

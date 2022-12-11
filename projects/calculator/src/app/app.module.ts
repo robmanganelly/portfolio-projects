@@ -7,6 +7,7 @@ import { MaterialModule } from './material/material.module';
 import { NumbersComponent } from './ui/buttons/numbers/numbers.component';
 import { SymbolsComponent } from './ui/buttons/symbols/symbols.component';
 import { KeyboardComponent } from './ui/keyboard/keyboard.component';
+import { DisplayComponent } from './ui/display/display.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { KeyboardComponent } from './ui/keyboard/keyboard.component';
     NumbersComponent,
     SymbolsComponent,
     KeyboardComponent,
+    DisplayComponent,
   ],
   imports: [
     BrowserModule,
