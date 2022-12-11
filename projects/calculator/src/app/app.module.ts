@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
-import { NumbersComponent } from './ui/buttons/numbers/numbers.component';
+// import { NumbersComponent } from './ui/buttons/numbers/numbers.component';
 import { SymbolsComponent } from './ui/buttons/symbols/symbols.component';
 import { KeyboardComponent } from './ui/keyboard/keyboard.component';
 import { DisplayComponent } from './ui/display/display.component';
@@ -12,7 +12,7 @@ import { DisplayComponent } from './ui/display/display.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NumbersComponent,
+    // NumbersComponent,
     SymbolsComponent,
     KeyboardComponent,
     DisplayComponent,

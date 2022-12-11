@@ -1,31 +1,20 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { Component } from '@angular/core';
+import { map } from 'rxjs';
 import { CoreService } from '../../services/core.service';
 
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
-  styleUrls: ['./display.component.scss']
+  styleUrls: ['./display.component.scss'],
 })
-export class DisplayComponent implements OnInit, OnDestroy{
+export class DisplayComponent {
+  operations$;
+  results$;
 
-  operations = "";
-  results = "";
-
-  destroy: Subject<void>  = new Subject<void>();
-
-
-
-  constructor(private core: CoreService){}
-
-  ngOnInit(): void {
-    this.core.operations.pipe(takeUntil(this.destroy)).subscribe(ops=>this.operations = ops);
-    this.core.result.pipe(takeUntil(this.destroy)).subscribe(rs=>this.results = this.core.formatOperations(rs));
+  constructor(private core: CoreService) {
+    this.results$ = this.core.result.pipe(
+      map((rs) => this.core.formatOperations(rs))
+    );
+    this.operations$ = this.core.operations;
   }
-
-  ngOnDestroy(): void {
-    this.destroy.next();
-    this.destroy.complete();
-  }
-
 }

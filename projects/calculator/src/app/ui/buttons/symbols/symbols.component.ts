@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CoreService } from '../../../services/core.service';
 import { Button, Labels } from '../button';
 
 @Component({
@@ -9,22 +10,19 @@ import { Button, Labels } from '../button';
 export class SymbolsComponent implements Button<string> {
 
   @Input() label!: Labels;
-  @Output('trigger') emit: EventEmitter<Labels> = new EventEmitter<Labels>();
   @Input() key!: string;
 
-  press(event: any): void {
-    if (event.key === this.key) {
-      this.emit.emit(this.label);
-    }
-  }
+  constructor(private core: CoreService){}
+
   touch(): void {
-    this.emit.emit(this.label);
+    this.core.registerKey(this.label);
   }
 
   get getLabel(): string {
     return this.label.toString();
   }
 
-  constructor() {}
-
+  handle($event: KeyboardEvent): void {
+    $event.preventDefault();
+  }
 }

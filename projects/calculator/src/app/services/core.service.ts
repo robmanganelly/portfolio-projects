@@ -7,6 +7,33 @@ import { Labels, Nums, Operators } from '../ui/buttons/button';
   providedIn: 'root',
 })
 export class CoreService {
+  isValidKey(key: string): boolean {
+    return this.allowed.includes(key as Labels);
+  }
+  registerKey(key: string) {
+    if ([...this.nums,...this.supportedOperators].includes(key as Nums)) return this.compose(key as Labels);
+    if (key === 'C') return this.clear();
+    if (key === 'Enter' || key === '=' ) return this.compute();
+    if (key === 'Backspace' || key === 'DEL' ) return this.deleteLast();
+
+
+  }
+  clear() {
+    this._operationState = '';
+    this.operations.next('0');
+  }
+
+  compute() {
+    const last = this.result.getValue();
+    this.clear();
+    this.result.next(last);
+  }
+
+  deleteLast() {
+    const currentOp = this.operations.getValue();
+    this._operationState = currentOp.substring(0, currentOp.length-1);
+    this.operations.next(this._operationState);
+  }
   private _operationState = '';
   operations = new BehaviorSubject<string>(this._operationState);
   result = new BehaviorSubject<string>('');
@@ -27,8 +54,16 @@ export class CoreService {
     '*',
     '/',
     '=',
+    '%',
+    'C',
+    '^',
+    'NaN',
+    'Infinity',
+    'DEL',
+    'Enter',
+    'Backspace',
   ];
-  private supportedOperators: Operators[] = ['^', '+', '-', '*', '/'];
+  private supportedOperators: Operators[] = ['^', '+', '-', '*', '/','%','^','.'];
   private nums: Nums[] = [
     '0',
     '1',
@@ -50,11 +85,11 @@ export class CoreService {
       .pipe(map((operation) => this.calculate(operation)))
       .subscribe((result) => {
         console.log('must emit result', result);
-        this.result.next(result === 'undefined' ? ' ' : result)
+        this.result.next(result === 'undefined' ? ' ' : result);
       });
   }
 
-  compose(item: Labels) {
+  private compose(item: Labels) {
     try {
       if (item === '=') throw new Error('"=" is not yet implemented');
       this._operationState = this._sanitizeAndJoin(item);
@@ -74,33 +109,29 @@ export class CoreService {
 
   formatOperations(operation: string): string {
     return operation
-    .replace('+',' + ')
-    .replace('-',' - ')
-    .replace('*',' x ')
-    .replace('/', ' / ')
-    ;
+      .replace('+', ' + ')
+      .replace('-', ' - ')
+      .replace('*', ' x ')
+      .replace('/', ' / ');
   }
 
   private calculate(operation: string): string {
-    try{
+    try {
       return `${evaluate(operation)}`;
-    }catch(e){
+    } catch (e) {
       console.log(e);
-      switch(operation.charAt(operation.length-1)){
+      switch (operation.charAt(operation.length - 1)) {
         case '+':
-          return `${evaluate(operation +'1-1')}`;
+          return `${evaluate(operation + '1-1')}`;
         case '-':
-            return `${evaluate(operation +'1+1')}`;
+          return `${evaluate(operation + '1+1')}`;
         case '*':
-            return `${evaluate(operation +'1')}`;
+          return `${evaluate(operation + '1')}`;
         case '/':
-            return `${evaluate(operation +'1*1')}`;
+          return `${evaluate(operation + '1*1')}`;
         default:
           return '';
       }
     }
   }
-
 }
-
-
