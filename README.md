@@ -14,3 +14,11 @@ It contains the fundamental operations for executing basic arithmetics.
 The poster image belongs to <a target="_blank" href="https://www.vecteezy.com/free-vector/math-formula">vecteezy.com</a>
 
 Currently, is not fully implemented, there are a couple of different features that will be included in future versions, and write and run tests is required too.
+Nonetheless, you can download an run the code
+
+### Usage
+
+1. Clone the Repo
+2. Run `npm i`
+3 run `ng serve`
+4. voila
