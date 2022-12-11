@@ -62,6 +62,7 @@ export class CoreService {
     'DEL',
     'Enter',
     'Backspace',
+    '.'
   ];
   private supportedOperators: Operators[] = ['^', '+', '-', '*', '/','%','^','.'];
   private nums: Nums[] = [
@@ -91,7 +92,6 @@ export class CoreService {
 
   private compose(item: Labels) {
     try {
-      if (item === '=') throw new Error('"=" is not yet implemented');
       this._operationState = this._sanitizeAndJoin(item);
       this.operations.next(this._operationState);
     } catch (e) {
@@ -103,7 +103,9 @@ export class CoreService {
 
   private _sanitizeAndJoin(item: Labels): string {
     if (this.allowed.includes(item as Labels))
-      return `${this._operationState}${item}`;
+      return this.supportedOperators.includes(this._operationState[this._operationState.length -1] as Operators) && this.supportedOperators.includes(item as Operators) ?
+      `${this._operationState.substring(0,this._operationState.length -1)}${item}` :
+      `${this._operationState}${item}`;
     return `${this._operationState}`;
   }
 
