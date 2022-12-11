@@ -9,8 +9,13 @@ export class AppComponent {
   title = 'calculator';
 
   show = false;
+  showCredits = false;
 
   handleButton(event: any){
     console.log(event);
+  }
+
+  onChange(event: any){
+    this.show = event.target.checked;
   }
 }
