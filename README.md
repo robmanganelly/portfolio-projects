@@ -20,5 +20,5 @@ Nonetheless, you can download an run the code
 
 1. Clone the Repo
 2. Run `npm i`
-3 run `ng serve`
+3. run `ng serve`
 4. voila
