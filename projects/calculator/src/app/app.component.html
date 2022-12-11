@@ -1,25 +1,15 @@
-<!-- <app-numbers (trigger)="handleButton($event)" [label]="1"></app-numbers> -->
-<!-- <app-symbols (trigger)="handleButton($event)" label="+" ></app-symbols> -->
 <div class="calc-container">
-  <p-card>
-    <!-- display -->
+  <p-card *ngIf="show" id="modern-calc">
+    <!-- display-->
     <app-display></app-display>
-    <!-- button -->
-    <!-- <div class="container">
-
-      <div class="switch-holder">
-          <div class="switch-label">
-              <i class="fa fa-bluetooth-b"></i><span>Bluetooth</span>
-          </div> -->
+    <!-- switch-->
           <div class="toggle-wrapper">
             <div class="switch-toggle">
               <input type="checkbox" id="bluetooth">
               <label for="bluetooth"></label>
             </div>
           </div>
-      <!-- </div>
-  </div> -->
-    <!-- keys -->
+    <!-- keys-->
     <div class="app-keyboard">
       <app-keyboard></app-keyboard>
     </div>

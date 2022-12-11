@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'calculator';
 
+  show = false;
+
   handleButton(event: any){
     console.log(event);
   }
