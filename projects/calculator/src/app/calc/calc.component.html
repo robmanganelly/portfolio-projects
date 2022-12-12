@@ -1,0 +1,29 @@
+<p-dialog
+    [closable]="false"
+    [(visible)]="show"
+    [modal]="true"
+    [style]="{ width: '360px' }"
+    [draggable]="true"
+    [resizable]="false"
+  >
+    <!-- <p-card *ngIf="show" id="modern-calc"> -->
+    <!-- display-->
+    <app-display></app-display>
+    <!-- switch-->
+    <div class="toggle-wrapper">
+      <div class="switch-toggle">
+        <input
+          type="checkbox"
+          id="switch"
+          [checked]="show"
+          (change)="onChange($event)"
+        />
+        <label for="switch"></label>
+      </div>
+    </div>
+    <!-- keys-->
+    <div class="app-keyboard">
+      <app-keyboard></app-keyboard>
+    </div>
+    <!-- </p-card> -->
+  </p-dialog>

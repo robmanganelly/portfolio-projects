@@ -4,23 +4,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
-// import { NumbersComponent } from './ui/buttons/numbers/numbers.component';
-import { SymbolsComponent } from './ui/buttons/symbols/symbols.component';
-import { KeyboardComponent } from './ui/keyboard/keyboard.component';
-import { DisplayComponent } from './ui/display/display.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // NumbersComponent,
-    SymbolsComponent,
-    KeyboardComponent,
-    DisplayComponent,
+    MainComponent,
+
   ],
   imports: [
     BrowserModule,
     MaterialModule,
     BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

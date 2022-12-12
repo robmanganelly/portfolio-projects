@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CoreService } from './services/core.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +9,6 @@ import { CoreService } from './services/core.service';
 export class AppComponent {
   title = 'calculator';
 
-  constructor(private core: CoreService) {}
+  constructor(){}
 
-  show = false;
-  showCredits = false;
-
-  handleButton(event: any) {
-    console.log(event);
-  }
-
-  onChange(event: any) {
-    setTimeout(() => {
-      this.show = event.target.checked;
-      if (!this.show) {
-        this.core.clear();
-      }
-    }, 500);
-  }
 }

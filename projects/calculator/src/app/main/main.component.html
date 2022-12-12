@@ -1,0 +1,39 @@
+<p-card
+header="Modern Calculator"
+subheader="A short but fun project for beginners"
+[style]="{ 'max-width': '750px', 'margin': '40px auto' }"
+styleClass="p-card-shadow"
+>
+<ng-template pTemplate="header">
+  <img alt="math formula" src="assets/img/math.jpg" />
+</ng-template>
+<p>
+  This calculator is a simple, but functional project. I've made a lot of
+  them since I started coding, but this is the first one to be actually
+  published.
+</p>
+<p>
+  In this particular case, I inspired in the older calculators I found when
+  I was a child, but trying to give them a modern air.
+</p>
+<p>I just hope you enjoy using it as much as I did building it.</p>
+<ng-template pTemplate="footer">
+  <p-button
+    (click)="openCalculator()"
+    icon="pi pi-external-link"
+    label="Show"></p-button>
+  <button pButton pRipple type="button" label="Credits" class="p-button-text p-button-plain" (click)="showCredits=true"></button>
+  <a href="https://robmanganelly.dev/" target="_self" [ngStyle]="{display:'none'}" #toHome></a>
+  <button pButton pRipple type="button" label="Home" class="p-button-text p-button-plain" (click)="toHome.click()"></button>
+</ng-template>
+</p-card>
+
+
+<p-dialog header="Credits" [closable]="true" [(visible)]="showCredits" [style]="{'max-width': '500px'}">
+<p>
+ Card Image: <a target="_blank" href="https://www.vecteezy.com/free-vector/math-formula">Vecteezy</a>
+</p>
+  <!-- <ng-template pTemplate="footer"> -->
+      <!-- <p-button icon="pi pi-check" (click)="displayBasic=false" label="Ok" styleClass="p-button-text"></p-button> -->
+  <!-- </ng-template> -->
+</p-dialog>
