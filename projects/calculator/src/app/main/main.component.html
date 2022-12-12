@@ -23,6 +23,8 @@ styleClass="p-card-shadow"
     icon="pi pi-external-link"
     label="Show"></p-button>
   <button pButton pRipple type="button" label="Credits" class="p-button-text p-button-plain" (click)="showCredits=true"></button>
+  <a href="https://robmanganelly.dev/" target="_blank" [ngStyle]="{display:'none'}" #toHome></a>
+  <button pButton pRipple type="button" label="Home" class="p-button-text p-button-plain" (click)="toHome.click()"></button>
 </ng-template>
 </p-card>
 
