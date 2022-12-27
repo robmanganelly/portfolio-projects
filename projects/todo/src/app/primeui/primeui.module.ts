@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
 import {DividerModule} from 'primeng/divider';
-
+import {ToggleButtonModule} from 'primeng/togglebutton';
 @NgModule({
   declarations: [],
   imports: [
@@ -12,7 +12,8 @@ import {DividerModule} from 'primeng/divider';
   exports:[
     ButtonModule,
     CardModule,
-    DividerModule
+    DividerModule,
+    ToggleButtonModule
   ]
 })
 export class PrimeuiModule { }

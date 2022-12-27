@@ -1,3 +1,10 @@
 p-card{
   margin: 5px;
 }
+.content-wrapper{
+  display: flex;
+  flex-direction: row;
+  .content{
+    width: 90vw;
+  }
+}

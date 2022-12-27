@@ -7,6 +7,7 @@ import { PrimeuiModule } from './primeui/primeui.module';
 import { TaskComponent } from './task/task.component';
 import { TaskTrayComponent } from './task-tray/task-tray.component';
 import { ControlsComponent } from './controls/controls.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ControlsComponent } from './controls/controls.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PrimeuiModule
+    PrimeuiModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
