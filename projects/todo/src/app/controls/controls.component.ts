@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./controls.component.scss']
 })
 export class ControlsComponent {
+  createEnabled = false;
+
+  constructor(){}
+
+  cancelCreateTask(){
+    setTimeout(() => this.createEnabled = false,200)
+  }
+
+  onCreateClicked(){
+    if (this.createEnabled){
+      alert('new Note Added');
+      this.createEnabled = false;
+    }else{
+      this.createEnabled = true;
+    }
+  }
 
 }

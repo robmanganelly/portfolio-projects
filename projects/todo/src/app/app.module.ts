@@ -8,13 +8,15 @@ import { TaskComponent } from './task/task.component';
 import { TaskTrayComponent } from './task-tray/task-tray.component';
 import { ControlsComponent } from './controls/controls.component';
 import { FormsModule } from '@angular/forms';
+import { NewTaskComponent } from './new-task/new-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
     TaskTrayComponent,
-    ControlsComponent
+    ControlsComponent,
+    NewTaskComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ import { Task } from '../interfaces/task';
 export class TaskTrayComponent {
 
   tasks: Task[] = [
-    { title: 'test', content:'lorem ipsum dolor'},
+    { title: 'test', content: 'lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsuum dolor lorem ispum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor' },
     { title: 'test', content:'lorem ipsum dolor'},
     { title: 'test', content:'lorem ipsum dolor'},
     { title: 'test', content:'lorem ipsum dolor'},

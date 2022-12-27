@@ -11,8 +11,13 @@
           pButton
           pRipple
           type="button"
-          [icon]="checked ? 'pi pi-check':'pi pi-circle'"
-          [ngClass]="{'p-button-rounded': true, 'p-button-outlined': !checked}"
+
+          [icon]="checked ? 'pi pi-check':'pi'"
+          [ngClass]="{
+            'p-button-rounded': true,
+            'p-button-success': true,
+            'p-button-outlined': !checked
+          }"
           (click)="checked = !checked"
         ></button>
       </span>
