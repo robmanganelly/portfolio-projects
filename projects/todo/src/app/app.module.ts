@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimeuiModule } from './primeui/primeui.module';
 import { TaskComponent } from './task/task.component';
+import { TaskTrayComponent } from './task-tray/task-tray.component';
+import { ControlsComponent } from './controls/controls.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent
+    TaskComponent,
+    TaskTrayComponent,
+    ControlsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class TaskComponent {
 
+  @Input()
+  title!:string;
+  @Input()
+  content!:string;
+  @Input()
+  timestamp!:number;
+
+  constructor(){
+    this.timestamp = Date.now()
+  }
 }

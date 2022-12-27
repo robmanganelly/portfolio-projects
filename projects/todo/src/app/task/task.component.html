@@ -1,1 +1,9 @@
-<button pButton pRipple type="button" label="Primary" class="p-button-rounded"></button>
+<p-card [header]=title>
+  <!-- <ng-template #header pTemplate="header">
+    <span class="header">Header</span>
+  </ng-template> -->
+  <ng-template #header pTemplate="content">{{content}}</ng-template>
+  <ng-template #header pTemplate="footer">
+    <footer><small>created at {{timestamp | date : 'MMM d, y, h:mm:ss a'}}</small></footer>
+  </ng-template>
+</p-card>
