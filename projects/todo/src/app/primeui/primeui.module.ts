@@ -4,6 +4,8 @@ import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
 import {DividerModule} from 'primeng/divider';
 import {ToggleButtonModule} from 'primeng/togglebutton';
+import {InputTextModule} from 'primeng/inputtext';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 @NgModule({
   declarations: [],
   imports: [
@@ -13,6 +15,8 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
     ButtonModule,
     CardModule,
     DividerModule,
+    InputTextareaModule,
+    InputTextModule,
     ToggleButtonModule
   ]
 })

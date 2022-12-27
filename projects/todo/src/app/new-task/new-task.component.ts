@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from '../interfaces/task';
 
 @Component({
   selector: 'app-new-task',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-task.component.scss']
 })
 export class NewTaskComponent {
+
+  task:Task = {title:'', content:''};
+
+  constructor(){}
 
 }

@@ -11,7 +11,7 @@ export class ControlsComponent {
   constructor(){}
 
   cancelCreateTask(){
-    setTimeout(() => this.createEnabled = false,200)
+    setTimeout(() => this.createEnabled = false,100)
   }
 
   onCreateClicked(){

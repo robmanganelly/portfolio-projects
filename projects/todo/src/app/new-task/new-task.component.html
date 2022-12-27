@@ -1,1 +1,24 @@
+    <div class="new-container">
+      <span class="p-float-label">
+        <input
+        size="large"
+          id="float-title-input"
+          type="text"
+          pInputText
+          [(ngModel)]="task.title"
+        />
+        <label for="float-title-input">Title</label>
+      </span>
+      <span class="p-float-label">
+        <textarea
+          id="float-content-input"
+          rows="5"
+          cols="30"
+          [(ngModel)]="task.content"
+          pInputTextarea
+        ></textarea>
+        <!--may use [autoResize]="true" -->
 
+        <label for="float-content-input">Content</label>
+      </span>
+    </div>

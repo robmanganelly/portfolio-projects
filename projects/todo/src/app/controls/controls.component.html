@@ -2,6 +2,12 @@
   <app-new-task></app-new-task>
 </div>
 <div class="controls-container">
+  <button pButton
+    (click)="onCreateClicked()"
+    [label]="createEnabled ? 'Add' : 'Create'"
+    icon="pi pi-plus"
+  ></button>
+
   <button
     pButton
     pRipple
@@ -9,9 +15,6 @@
     *ngIf="createEnabled"
     (click)="cancelCreateTask()"
     label="Cancel"
-    icon="pi pi-times"></button>
-  <p-button
-    (click)="onCreateClicked()"
-    [label]="createEnabled ? 'Add': 'Create'"
-    icon="pi pi-plus"></p-button>
+    icon="pi pi-times"
+  ></button>
 </div>
